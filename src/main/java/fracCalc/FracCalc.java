@@ -23,7 +23,7 @@ public class FracCalc {
 	}
 
 	public static String produceAnswer(String input) {
-		//Splits the user input into 3 parts
+		// Splits the user input into 3 parts
 		int first = input.indexOf(" ");
 		String firstNumber = input.substring(0, first);
 		String operators = input.substring(first + 1, first + 2);
@@ -68,8 +68,8 @@ public class FracCalc {
 		} else {
 			whole = secondNumber;
 		}
-		
-		//Splits the first number into 3 parts 
+
+		// Splits the first number into 3 parts
 		String fwhole = "0";
 		String fnumerator = "0";
 		String fdenominator = "1";
@@ -109,7 +109,6 @@ public class FracCalc {
 			fwhole = firstNumber;
 		}
 
-
 		int iWhole = 0;
 		int iDen = 0;
 		int ifNum = 0;
@@ -128,7 +127,7 @@ public class FracCalc {
 			sign *= (-1);
 			sSign = -1;
 		}
-		//turns every number to an integer and positive
+		// turns every number to an integer and positive
 		int fw = Math.abs(Integer.parseInt(fwhole));
 		int w = Math.abs(Integer.parseInt(whole));
 		int fd = Integer.parseInt(fdenominator);
@@ -140,7 +139,7 @@ public class FracCalc {
 		isNum = (d * w + n) * fd * sSign;
 		iDen = fd * d;
 
-		//does the operation
+		// does the operation
 		if (operators.substring(0).equals("+")) {
 			fNum = ifNum + isNum;
 		}
@@ -160,10 +159,10 @@ public class FracCalc {
 			iDen = iDen * isNum;
 
 		}
-		//turns the answer back into a mixed number
+		// turns the answer back into a mixed number
 		iWhole = Math.abs(fNum) / Math.abs(iDen);
 
-		// puts the correct sign on the number, ie. postive or negative
+		// puts the correct sign on the answer, ie. postive or negative
 		if ((fNum < 0 || iDen < 0) && (op == '*' || op == '/')) {
 			iWhole = iWhole * sign;
 		}
@@ -177,14 +176,14 @@ public class FracCalc {
 			fNum = fNum * sign;
 		}
 
-		//simplifies the fraction
+		// simplifies the fraction
 		for (int divisor = Math.abs(fNum); divisor > 0; divisor--) {
 			if (fNum % divisor == 0 && iDen % divisor == 0) {
 				fNum = fNum / divisor;
 				iDen = iDen / divisor;
 			}
 		}
-		
+
 		// puts the answer in the right format
 		if (fNum == 0) {
 			answer = (iWhole + "");
@@ -193,7 +192,7 @@ public class FracCalc {
 		} else {
 			answer = (iWhole + "_" + Math.abs(fNum) + "/" + iDen);
 		}
-
+		// returns the answer
 		return answer;
 	}
 
