@@ -109,10 +109,15 @@ public class FracCalc {
 			fwhole = firstNumber;
 		}
 
+		// final whole number
 		int iWhole = 0;
+		//final denominator
 		int iDen = 0;
+		//final first numerator
 		int ifNum = 0;
+		//final second numerator
 		int isNum = 0;
+		//final numerator
 		int fNum = 0;
 		String answer = "0";
 		// Deals with the negative and postive values of the numbers
